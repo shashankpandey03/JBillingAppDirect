@@ -1,0 +1,10 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+JBilling-Rule-Processor,com.jbilling.appdirect.processor.decorator.impl,AverageCalculatorRuleProcessorDecorator,2,75,4,6,1,17,4,5,0,4
+JBilling-Rule-Processor,com.jbilling.appdirect.processor.decorator.impl,ListModifierRuleProcessorDecorator,2,107,6,12,1,22,6,7,0,4
+JBilling-Rule-Processor,com.jbilling.appdirect.processor.decorator.impl,PercentageCalculatorRuleProcessorDecorator,8,89,3,7,2,23,3,6,0,4
+JBilling-Rule-Processor,com.jbilling.appdirect.processor,IRuleProcessor,0,3,0,0,0,1,0,1,0,1
+JBilling-Rule-Processor,com.jbilling.appdirect,AppConfig,0,49,0,0,0,12,0,6,0,6
+JBilling-Rule-Processor,com.jbilling.appdirect.processor.factory,RuleProcessorFactory,0,13,0,0,0,4,0,3,0,3
+JBilling-Rule-Processor,com.jbilling.appdirect.processor.impl,RuleProcessor,2,45,1,1,1,12,1,4,0,4
+JBilling-Rule-Processor,com.jbilling.appdirect.processor.decorator,IRuleProcessorDecorator,0,3,0,0,0,1,0,1,0,1
+JBilling-Rule-Processor,com.jbilling.appdirect.service.impl,RuleProcessorServiceImpl,0,172,4,10,0,37,4,5,0,2

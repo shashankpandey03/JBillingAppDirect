@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PercentageCalculatorRuleProcessorDecorator.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JBilling-Rule-Processor</a> &gt; <a href="index.source.html" class="el_package">com.jbilling.appdirect.processor.decorator.impl</a> &gt; <span class="el_source">PercentageCalculatorRuleProcessorDecorator.java</span></div><h1>PercentageCalculatorRuleProcessorDecorator.java</h1><pre class="source lang-java linenums">package com.jbilling.appdirect.processor.decorator.impl;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.jbilling.appdirect.domain.response.RequestObject;
+import com.jbilling.appdirect.processor.IRuleProcessor;
+import com.jbilling.appdirect.processor.decorator.IRuleProcessorDecorator;
+
+<span class="fc" id="L10">public class PercentageCalculatorRuleProcessorDecorator extends IRuleProcessorDecorator {</span>
+
+<span class="fc" id="L12">	private Logger logger = LoggerFactory.getLogger(PercentageCalculatorRuleProcessorDecorator.class);</span>
+	
+	private IRuleProcessor ruleProcessor;
+	private String input;
+
+	@Override
+	public void setRuleInput(String input) {
+<span class="fc" id="L19">		this.input = input;</span>
+<span class="fc" id="L20">	}</span>
+
+	@Override
+	public Object processRule(RequestObject requestObject) {
+<span class="fc" id="L24">		logger.debug(&quot;Input : &quot; + input);</span>
+<span class="fc" id="L25">		logger.debug(&quot;Adding percentage&quot;);</span>
+		
+<span class="pc bpc" id="L27" title="2 of 4 branches missed.">		if(input != null &amp;&amp; !input.isEmpty()) {</span>
+			
+			try {
+<span class="fc" id="L30">				int percentage = Integer.parseInt(input);</span>
+<span class="fc" id="L31">				boolean isPositive = false;</span>
+				
+<span class="fc bfc" id="L33" title="All 2 branches covered.">				if(percentage &gt; 0) {</span>
+<span class="fc" id="L34">					isPositive = true;</span>
+				}
+				
+<span class="fc" id="L37">				percentage = Math.abs(percentage);</span>
+<span class="fc" id="L38">				int postPercentageCalculation = 0;</span>
+				
+<span class="fc bfc" id="L40" title="All 2 branches covered.">				if(isPositive) {</span>
+<span class="fc" id="L41">					postPercentageCalculation = requestObject.getIntermittentResult() + (requestObject.getIntermittentResult() * percentage)/100;</span>
+<span class="fc" id="L42">				} else {</span>
+<span class="fc" id="L43">					postPercentageCalculation = requestObject.getIntermittentResult() - (requestObject.getIntermittentResult() * percentage)/100;</span>
+				}
+<span class="fc" id="L45">				requestObject.setIntermittentResult(postPercentageCalculation);</span>
+				
+<span class="pc" id="L47">			} catch(Exception e) {</span>
+<span class="nc" id="L48">				e.printStackTrace();</span>
+			}
+		}
+		
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">		if(ruleProcessor != null) {</span>
+<span class="nc" id="L53">			return ruleProcessor.processRule(requestObject);</span>
+		} else {
+<span class="fc" id="L55">			return null;</span>
+		}
+	}
+
+	@Override
+	public void setRuleProcessor(IRuleProcessor processor) {
+<span class="fc" id="L61">		ruleProcessor = processor;</span>
+<span class="fc" id="L62">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

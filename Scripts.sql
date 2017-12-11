@@ -1,6 +1,4 @@
--- Table: "PRODUCT"
-
-/* CREATE DATABASE appdirect
+CREATE DATABASE appdirect
   WITH OWNER = postgres
        ENCODING = 'UTF8'
        TABLESPACE = pg_default
@@ -8,9 +6,6 @@
        LC_CTYPE = 'English_United States.1252'
        CONNECTION LIMIT = -1;
 
-DROP TABLE product;
-DROP TABLE store;
-DROP TABLE pricing; */
 
 CREATE TABLE PRODUCT
 (

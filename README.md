@@ -14,7 +14,13 @@ Steps to build :  Build in following order
     
   # JBilling
     This module contains all the rest apis related to product, store, pricing and to trigger ideal price calculator scheduler. This module also has a scheduler that runs at a given interval of time and calculates ideal price for every product id. This takes JBilling-Rule-Processor and JBilling-dto as dependecy.
-    
+
+# Scripts SQL 
+  Execute scripts.sql before executing the JBilling project.
+  
+# Executing project
+  The main project is JBilling which is spring boot based. After building projects in the above given order, run JBilling project.
+
 # Running JUnit
   Junit test cases can be executed for JBilling and JBilling-Rule-Processor projects by executing below command in their respective           directories.
   mvn test

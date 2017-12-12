@@ -29,6 +29,8 @@ Steps to build :  Build in following order
   * RuleKey - PERCENTAGE_CALCULATOR	
     Sample Input - 10/-10 	
     Explanation - This calculates percentage of given value and adds or subtracts it.
+    
+  Sample json rule = {"LIST_MODIFIER":"1,-1","AVERAGE_CALCULATOR":"","PERCENTAGE_CALCULATOR":"20"}
 
 ## Steps to add new rules
   * Create a new key like given above eg; DUMMY_RULE

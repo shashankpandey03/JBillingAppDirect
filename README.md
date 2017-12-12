@@ -17,7 +17,7 @@ Steps to build :  Build in following order
 
 ## JSON Rules
   This product runs on json rules defined for given deployment. Rules are defined in json format and saved in db. A scheduler keeps on running and fetchies the rules from db and puts it up in cache. This helps in dynamically changing rules for a given client. Currently, 3 rules are defined as below:  
-  * RuleKey - LIST_MODIFIER
+  * RuleKey - LIST_MODIFIER, ,
     Sample Input - 1,-1	  
     Explanation - This accepts maximum of 2 and min 1 vaue. +ve means trimming list from head, -ve means trimming from end
  
@@ -30,6 +30,11 @@ Steps to build :  Build in following order
     Sample Input - 10/-10 	
     Explanation - This calculates percentage of given value and adds or subtracts it.
 
+## Steps to add new rules
+  * Create a new key like given above eg; DUMMY_RULE
+  * Create its decorator class that extends IRuleProcessorDecorator under package com.jbilling.appdirect.processor.decorator.impl of prject JBIlling-Rule-Processor eg; DUMMY_RULE_DECORATOR
+  * Change config class' rulePRocessorMap and add your entry
+    map.put("DUMMY_RULE", new DUMMY_RULE_DECORATOR());
 
 ## Scripts SQL 
   Execute scripts.sql before executing the JBilling project.
@@ -43,5 +48,5 @@ Steps to build :  Build in following order
 
 ## Code coverage
   Code coverage of JBilling and JBilling-Rule-Processor projects can be seen after running "maven test" command. Code coverage index pages   for respective projects is available at respective project's "target/jacoco-ut/index.html"
-  JBilling-Rule-Processor/target/jacoco-ut/index.html
+  JBilling-Rule-Processor/target/jacoco-ut/index.html and 
   JBilling/target/jacoco-ut/index.html

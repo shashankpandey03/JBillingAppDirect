@@ -16,6 +16,12 @@ import com.jbilling.appdirect.domain.response.JobResponse;
 import com.jbilling.appdirect.exception.JBillingException;
 import com.jbilling.appdirect.service.IdealPriceCalculatorService;
 
+/**
+ * 
+ * @author ShashankPandey
+ * Rest API for invoking ideal price calculator scheduler
+ *
+ */
 @RestController
 @RequestMapping("/jobs/pricecalculator")
 public class IdealPriceCalculatorTriggerApi {

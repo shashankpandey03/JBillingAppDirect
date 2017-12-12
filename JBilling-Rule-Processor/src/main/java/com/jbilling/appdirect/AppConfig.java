@@ -24,7 +24,7 @@ public class AppConfig {
 		return factory;
 	}
 	
-	public Map<String, IRuleProcessor> ruleProcessorMap() {
+	private Map<String, IRuleProcessor> ruleProcessorMap() {
 		Map<String, IRuleProcessor> map = new HashMap<String, IRuleProcessor>();
 		map.put("PERCENTAGE_CALCULATOR", percentageCalculatorBean());
 		map.put("LIST_MODIFIER", listModifierBean());
@@ -46,19 +46,4 @@ public class AppConfig {
 	public IRuleProcessor percentageCalculatorBean() {
 		return new PercentageCalculatorRuleProcessorDecorator();
 	}
-	
-	/*@Bean
-	public RuleProcessorFactory ruleProcessorFactory() {
-		return new RuleProcessorFactory();
-	}
-	
-	@Bean
-	public IRuleProcessorService ruleProcessorService(){
-		return new RuleProcessorServiceImpl();
-	}
-	
-	@Bean
-	public IRuleProcessor ruleProcessor(){
-		return new RuleProcessor();
-	}*/
 }

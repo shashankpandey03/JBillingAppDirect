@@ -11,7 +11,13 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import com.jbilling.appdirect.domain.response.JBillingResponse;
 import com.jbilling.appdirect.exception.JBillingException;
 
-
+/**
+ * 
+ * @author ShashankPandey
+ * Common exception handler for handling all the exceptions
+ * across the project and send a proper response
+ *
+ */
 @ControllerAdvice
 public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 

@@ -21,6 +21,12 @@ import com.jbilling.appdirect.dao.ProductDao;
 import com.jbilling.appdirect.domain.entity.ProductEntity;
 import com.jbilling.appdirect.exception.JBillingException;
 
+/**
+ * 
+ * @author ShashankPandey
+ * Dao class for db operations on product table
+ *
+ */
 @Repository
 public class ProductDaoImpl implements ProductDao {
 
@@ -57,10 +63,8 @@ public class ProductDaoImpl implements ProductDao {
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
 	public int delete(String productId) {
+		pricingDataDao.deleteByProductId(productId);
 		int count = template.update(JBillingConstants.DELETE_PRODUCT, productId);
-		if(count != 0) {
-			pricingDataDao.deleteByProductId(productId);
-		}
 		return count;
 	}
 

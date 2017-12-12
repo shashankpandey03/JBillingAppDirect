@@ -15,6 +15,12 @@ import com.jbilling.appdirect.constants.JBillingConstants;
 import com.jbilling.appdirect.dao.RuleDao;
 import com.jbilling.appdirect.domain.entity.Rules;
 
+/**
+ * 
+ * @author ShashankPandey
+ * Dao class for fetching rules from rule table
+ *
+ */
 @Component
 public class RuleDaoImpl implements RuleDao {
 

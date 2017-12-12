@@ -15,6 +15,11 @@ import com.jbilling.appdirect.domain.request.Store;
 import com.jbilling.appdirect.exception.JBillingResourceNotFoundException;
 import com.jbilling.appdirect.service.StoreService;
 
+/**
+ * Service class for store related operations
+ * @author ShashankPandey
+ *
+ */
 @Service
 public class StoreServiceImpl implements StoreService {
 

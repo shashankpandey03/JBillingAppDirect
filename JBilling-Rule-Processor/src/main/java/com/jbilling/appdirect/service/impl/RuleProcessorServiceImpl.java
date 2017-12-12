@@ -19,6 +19,13 @@ import com.jbilling.appdirect.processor.factory.RuleProcessorFactory;
 import com.jbilling.appdirect.processor.impl.RuleProcessor;
 import com.jbilling.appdirect.service.IRuleProcessorService;
 
+/**
+ * Service class to create chain of decorators based on rules defines
+ * in json. It picks key from json , looks it up in factory and brings 
+ * corresponding decorator and creates a chain passing the value from json as input
+ * @author ShashankPandey
+ *
+ */
 @Component
 public class RuleProcessorServiceImpl implements IRuleProcessorService {
 
@@ -47,6 +54,8 @@ public class RuleProcessorServiceImpl implements IRuleProcessorService {
 
 				while (iterator.hasPrevious()) {
 					entry = iterator.previous();
+					
+					logger.debug("Fetching decorator for key : " + entry.getKey());
 					processor = factory.getRuleProcessor(entry.getKey());
 					if(processor != null) {
 						processor.setRuleProcessor(ruleProcessor);
@@ -71,7 +80,6 @@ public class RuleProcessorServiceImpl implements IRuleProcessorService {
 				for(Map.Entry<ProductPricingDetails,List<Integer>> entry : map.entrySet()) {
 					requestObject.setRequest(entry.getValue());
 					ruleProcessor.processRule(requestObject);
-					System.out.println(requestObject.getIntermittentResult());
 					entry.getKey().setIdealPrice(requestObject.getIntermittentResult());
 				}
 			}

@@ -18,6 +18,12 @@ import com.jbilling.appdirect.domain.entity.PricingDataEntity;
 import com.jbilling.appdirect.domain.response.ProductPricingDetails;
 import com.jbilling.appdirect.exception.JBillingException;
 
+/**
+ * 
+ * @author ShashankPandey
+ * Dao class for db operations on pricing table
+ *
+ */
 @Repository
 public class PricingDataDaoImpl implements PricingDataDao {
 

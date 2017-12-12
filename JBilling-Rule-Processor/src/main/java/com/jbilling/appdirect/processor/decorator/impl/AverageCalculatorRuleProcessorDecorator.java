@@ -9,6 +9,13 @@ import com.jbilling.appdirect.domain.response.RequestObject;
 import com.jbilling.appdirect.processor.IRuleProcessor;
 import com.jbilling.appdirect.processor.decorator.IRuleProcessorDecorator;
 
+/**
+ * Class to calculate average of lit of prices provided.
+ * It takes List of integer prices and calculates the average.
+ * An empty input is provided as json input for this decorator
+ * @author ShashankPandey
+ *
+ */
 public class AverageCalculatorRuleProcessorDecorator extends IRuleProcessorDecorator {
 
 	private Logger logger = LoggerFactory.getLogger(AverageCalculatorRuleProcessorDecorator.class);
@@ -36,7 +43,7 @@ public class AverageCalculatorRuleProcessorDecorator extends IRuleProcessorDecor
 				requestObject.setIntermittentResult(sum/priceList.size());
 			}
 		}
-		
+		logger.debug("Average calculation done");
 		if(ruleProcessor != null) {
 			return ruleProcessor.processRule(requestObject);
 		} else {

@@ -9,6 +9,11 @@ import com.jbilling.appdirect.dao.RuleDao;
 import com.jbilling.appdirect.domain.entity.Rules;
 import com.jbilling.appdirect.service.RuleService;
 
+/**
+ * Service class for fetching json rules
+ * @author ShashankPandey
+ *
+ */
 @Component
 public class RuleServiceImpl implements RuleService {
 

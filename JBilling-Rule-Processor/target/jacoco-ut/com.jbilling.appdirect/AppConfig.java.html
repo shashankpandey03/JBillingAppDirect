@@ -24,7 +24,7 @@ import com.jbilling.appdirect.processor.factory.RuleProcessorFactory;
 <span class="fc" id="L24">		return factory;</span>
 	}
 	
-	public Map&lt;String, IRuleProcessor&gt; ruleProcessorMap() {
+	private Map&lt;String, IRuleProcessor&gt; ruleProcessorMap() {
 <span class="fc" id="L28">		Map&lt;String, IRuleProcessor&gt; map = new HashMap&lt;String, IRuleProcessor&gt;();</span>
 <span class="fc" id="L29">		map.put(&quot;PERCENTAGE_CALCULATOR&quot;, percentageCalculatorBean());</span>
 <span class="fc" id="L30">		map.put(&quot;LIST_MODIFIER&quot;, listModifierBean());</span>
@@ -46,20 +46,5 @@ import com.jbilling.appdirect.processor.factory.RuleProcessorFactory;
 	public IRuleProcessor percentageCalculatorBean() {
 <span class="fc" id="L47">		return new PercentageCalculatorRuleProcessorDecorator();</span>
 	}
-	
-	/*@Bean
-	public RuleProcessorFactory ruleProcessorFactory() {
-		return new RuleProcessorFactory();
-	}
-	
-	@Bean
-	public IRuleProcessorService ruleProcessorService(){
-		return new RuleProcessorServiceImpl();
-	}
-	
-	@Bean
-	public IRuleProcessor ruleProcessor(){
-		return new RuleProcessor();
-	}*/
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

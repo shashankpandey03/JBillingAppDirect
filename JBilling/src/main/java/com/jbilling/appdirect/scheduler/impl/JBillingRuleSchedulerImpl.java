@@ -12,6 +12,13 @@ import com.jbilling.appdirect.domain.entity.Rules;
 import com.jbilling.appdirect.scheduler.JBillingRuleScheduler;
 import com.jbilling.appdirect.service.RuleService;
 
+/**
+ * 
+ * @author ShashankPandey
+ * Scheduler to fetch json rule from database and store it in cache.
+ * It runs at a given fixed interval and stores the json rule in cahce
+ * against key "JSON_RULE"
+ */
 @Component
 public class JBillingRuleSchedulerImpl implements JBillingRuleScheduler {
 

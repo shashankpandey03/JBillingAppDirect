@@ -7,6 +7,12 @@ import com.jbilling.appdirect.domain.response.RequestObject;
 import com.jbilling.appdirect.processor.IRuleProcessor;
 import com.jbilling.appdirect.processor.decorator.IRuleProcessorDecorator;
 
+/**
+ * Class to calculate percentage and depending upon positive or negative ,
+ * it adds or deducts
+ * @author ShashankPandey
+ *
+ */
 public class PercentageCalculatorRuleProcessorDecorator extends IRuleProcessorDecorator {
 
 	private Logger logger = LoggerFactory.getLogger(PercentageCalculatorRuleProcessorDecorator.class);
@@ -30,6 +36,8 @@ public class PercentageCalculatorRuleProcessorDecorator extends IRuleProcessorDe
 				int percentage = Integer.parseInt(input);
 				boolean isPositive = false;
 				
+				logger.debug("Percentage to be calculated : " + percentage);
+				
 				if(percentage > 0) {
 					isPositive = true;
 				}
@@ -43,9 +51,9 @@ public class PercentageCalculatorRuleProcessorDecorator extends IRuleProcessorDe
 					postPercentageCalculation = requestObject.getIntermittentResult() - (requestObject.getIntermittentResult() * percentage)/100;
 				}
 				requestObject.setIntermittentResult(postPercentageCalculation);
-				
+				logger.debug("Percentage calculation done.");
 			} catch(Exception e) {
-				e.printStackTrace();
+				logger.error("Error occurred while percentage calculation. " + e.getMessage());
 			}
 		}
 		

@@ -16,6 +16,11 @@ import com.jbilling.appdirect.exception.JBillingException;
 import com.jbilling.appdirect.exception.JBillingResourceNotFoundException;
 import com.jbilling.appdirect.service.ProductService;
 
+/**
+ * Service class for product related operations
+ * @author ShashankPandey
+ *
+ */
 @Service
 public class ProductServiceImpl implements ProductService {
 

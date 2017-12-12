@@ -15,13 +15,25 @@ import com.jbilling.appdirect.domain.response.JBillingResponse;
 import com.jbilling.appdirect.exception.JBillingException;
 import com.jbilling.appdirect.service.PricingDataService;
 
+/**
+ * 
+ * @author ShashankPandey
+ * Rest API for Pricing related operations
+ *
+ */
 @RestController
 @RequestMapping("store/product")
 public class ProductPricingRestApi {
 
 	@Autowired
 	private PricingDataService pricingDataService;
-	
+
+	/**
+	 * API to add a new product-store-price pricing info
+	 * @param pricingData
+	 * @return
+	 * @throws JBillingException
+	 */
 	@PostMapping
 	public ResponseEntity<JBillingResponse> updateProductPricing(@Valid @RequestBody PricingData pricingData) throws JBillingException {
 		JBillingResponse response = new JBillingResponse();

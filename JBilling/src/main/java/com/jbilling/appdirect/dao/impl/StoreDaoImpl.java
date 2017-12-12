@@ -20,6 +20,12 @@ import com.jbilling.appdirect.dao.StoreDao;
 import com.jbilling.appdirect.domain.entity.StoreEntity;
 import com.jbilling.appdirect.exception.JBillingResourceNotFoundException;
 
+/**
+ * 
+ * @author ShashankPandey
+ * Dao class for db operations on store table
+ *
+ */
 @Repository
 public class StoreDaoImpl implements StoreDao {
 
@@ -56,10 +62,8 @@ public class StoreDaoImpl implements StoreDao {
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
 	public int delete(String storeId) {
+		pricingDataDao.deleteByStoreId(storeId);
 		int count = template.update(JBillingConstants.DELETE_STORE, storeId);
-		if(count != 0) {
-			pricingDataDao.deleteByStoreId(storeId);
-		}
 		return count;
 	}
 

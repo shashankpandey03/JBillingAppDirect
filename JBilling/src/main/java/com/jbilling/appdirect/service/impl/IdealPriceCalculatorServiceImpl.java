@@ -15,6 +15,11 @@ import com.jbilling.appdirect.service.IRuleProcessorService;
 import com.jbilling.appdirect.service.IdealPriceCalculatorService;
 import com.jbilling.appdirect.service.PricingDataService;
 
+/**
+ * Service class to calculate ideal price
+ * @author e070404
+ *
+ */
 @Component
 public class IdealPriceCalculatorServiceImpl implements IdealPriceCalculatorService {
 
@@ -27,6 +32,9 @@ public class IdealPriceCalculatorServiceImpl implements IdealPriceCalculatorServ
 	@Autowired
 	private PricingDataService pricingDataService;
 
+	/**
+	 * Method to calculate ideal price for all the productIds present
+	 */
 	@Override
 	public void calculateIdealPrice() throws Exception {
 		
@@ -44,6 +52,12 @@ public class IdealPriceCalculatorServiceImpl implements IdealPriceCalculatorServ
 		}
 	}
 
+	/**
+	 * Method to calculate ideal price for a specific product
+	 * If ideal price is already present in cache , it fetches from there else,
+	 * calculates it. 
+	 * After calculation updates the cache.
+	 */
 	@Override
 	public Map<ProductPricingDetails,List<Integer>> calculateIdealPrice(String productId) throws Exception {
 		
@@ -67,6 +81,11 @@ public class IdealPriceCalculatorServiceImpl implements IdealPriceCalculatorServ
 		return null;
 	}
 	
+	/**
+	 * Updates the pricingdetails map with respective ideal price
+	 * @param map
+	 * @param pricingDetails
+	 */
 	private void updateMapWithIdealPrice(Map<ProductPricingDetails,List<Integer>> map, ProductPricingDetails pricingDetails) {
 		if(map != null && !map.isEmpty()) {
 			for(Map.Entry<ProductPricingDetails,List<Integer>> details : map.entrySet()) {
@@ -95,6 +114,10 @@ public class IdealPriceCalculatorServiceImpl implements IdealPriceCalculatorServ
 		return null;
 	}
 	
+	/**
+	 * Update cache with the ideal price for all the productIds
+	 * @param map
+	 */
 	private void updateCache(Map<ProductPricingDetails,List<Integer>> map) {
 		if(map != null && !map.isEmpty()) {
 			for(Map.Entry<ProductPricingDetails,List<Integer>> entry : map.entrySet()) {

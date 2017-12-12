@@ -4,17 +4,23 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class PricingData {
 	
 	@NotEmpty
+	@JsonProperty("store")
 	private String storeId;
 	
 	@NotEmpty
+	@JsonProperty("product")
 	private String productId;
 	
 	@NotNull
+	@JsonProperty("price")
 	private Integer price;
 
+	@JsonProperty("notes")
 	private String notes;
 	
 	public String getNotes() {

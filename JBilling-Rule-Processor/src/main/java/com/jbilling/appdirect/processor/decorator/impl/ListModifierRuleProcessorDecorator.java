@@ -9,6 +9,15 @@ import com.jbilling.appdirect.domain.response.RequestObject;
 import com.jbilling.appdirect.processor.IRuleProcessor;
 import com.jbilling.appdirect.processor.decorator.IRuleProcessorDecorator;
 
+/**
+ * Class to serve the purpose of trimming down the list.
+ * It takes maximum of 2 and minimum 1 parameter in json rule.
+ * Positive value refers to trimming from front,
+ * negative value means trimming from back. If trimming size provided is greater than
+ * list size, then operation is skipped
+ * @author ShashankPandey
+ *
+ */
 public class ListModifierRuleProcessorDecorator extends IRuleProcessorDecorator {
 
 	private Logger logger = LoggerFactory.getLogger(ListModifierRuleProcessorDecorator.class);
@@ -33,6 +42,8 @@ public class ListModifierRuleProcessorDecorator extends IRuleProcessorDecorator 
 					List<Integer> list = requestObject.getRequest();
 
 					int index = Integer.parseInt(s);
+					
+					// Do operation only if indices to trim are less than or equal to size of list 
 					if(list.size() >= Math.abs(index)) {
 						if (index > 0) {
 							list = list.subList(index, list.size());
@@ -44,6 +55,7 @@ public class ListModifierRuleProcessorDecorator extends IRuleProcessorDecorator 
 				}
 			}
 		}
+		logger.debug("List modification done");
 
 		if (ruleProcessor != null) {
 			return ruleProcessor.processRule(requestObject);

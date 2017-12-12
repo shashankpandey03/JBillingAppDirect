@@ -6,8 +6,20 @@ import java.util.UUID;
 import com.jbilling.appdirect.domain.entity.PricingDataEntity;
 import com.jbilling.appdirect.domain.request.PricingData;
 
+/**
+ * 
+ * @author ShashankPandey
+ * Class for converting PricingData related pojos
+ * 
+ */
 public class PricingDataConverter {
 
+	/**
+	 * Converts PricingData to PricingDataEntity
+	 * Add a UUID and timestamp to product entity
+	 * @param p
+	 * @return
+	 */
 	public static PricingDataEntity convertPricingDataToEntity(PricingData p) {
 		PricingDataEntity pe = new PricingDataEntity();
 		pe.setPricingDataId(UUID.randomUUID().toString());

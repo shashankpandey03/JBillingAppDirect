@@ -7,6 +7,13 @@ import org.springframework.stereotype.Component;
 import com.jbilling.appdirect.scheduler.IdealPriceCalculatorScheduler;
 import com.jbilling.appdirect.service.IdealPriceCalculatorService;
 
+/**
+ * 
+ * @author ShashankPandey
+ * Scheduler to continuously calculate ideal price for all the productIds
+ * available and store them in cache. Time interval is configurable
+ *
+ */
 @Component
 public class IdealPriceCalculatorSchedulerImpl implements IdealPriceCalculatorScheduler {
 

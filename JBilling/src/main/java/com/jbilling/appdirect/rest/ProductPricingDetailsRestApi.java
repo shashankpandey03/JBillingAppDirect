@@ -16,6 +16,14 @@ import com.jbilling.appdirect.domain.response.JBillingResponse;
 import com.jbilling.appdirect.domain.response.ProductPricingDetails;
 import com.jbilling.appdirect.service.IdealPriceCalculatorService;
 
+/**
+ * 
+ * @author ShashankPandey
+ * Rest API for product related operations giving lowest, max, average
+ * and ideal price of specific product
+ *
+ */
+
 @RestController
 @RequestMapping("/product")
 public class ProductPricingDetailsRestApi {
@@ -23,6 +31,13 @@ public class ProductPricingDetailsRestApi {
 	@Autowired
 	private IdealPriceCalculatorService idealPriceCalculatorService;
 	
+	/**
+	 * API to get lowest, max, average and ideal price of specific product
+	 * by its product id
+	 * @param productId
+	 * @return
+	 * @throws Exception
+	 */
 	@GetMapping(value="/{productId}/prices")
 	public ResponseEntity<JBillingResponse> getProductPricingDetails(@NotEmpty @PathVariable("productId") String productId) throws Exception {
 		Map<ProductPricingDetails,List<Integer>> map = idealPriceCalculatorService.calculateIdealPrice(productId);

@@ -22,6 +22,13 @@ import com.jbilling.appdirect.domain.response.JBillingResponse;
 import com.jbilling.appdirect.exception.JBillingException;
 import com.jbilling.appdirect.service.StoreService;
 
+/**
+ * 
+ * @author ShashankPandey
+ * Rest API for Store related operations
+ *
+ */
+
 @RestController
 @RequestMapping("store")
 public class StoreRestApi {
@@ -29,30 +36,58 @@ public class StoreRestApi {
 	@Autowired
 	private StoreService storeService;
 	
+	/**
+	 * API to get all the stores
+	 * @return
+	 */
 	@GetMapping
 	public ResponseEntity<JBillingResponse> getAllStores() {
 		JBillingResponse response = createResponse(storeService.list());
 		return new ResponseEntity<JBillingResponse>(response,HttpStatus.OK);
 	}
 	
+	/**
+	 * API to fetch a specific store by storeId
+	 * @param storeId
+	 * @return
+	 * @throws JBillingException
+	 */
 	@GetMapping(value="/{storeId}")
 	public ResponseEntity<JBillingResponse> getStores(@NotEmpty @PathVariable("storeId") String storeId) throws JBillingException {
 		JBillingResponse response = createResponse(storeService.getStore(storeId));
 		return new ResponseEntity<JBillingResponse>(response,HttpStatus.OK);
 	}
 	
+	/**
+	 * API to save store
+	 * @param store
+	 * @return
+	 * @throws JBillingException
+	 */
 	@PostMapping
 	public ResponseEntity<JBillingResponse> createStores(@Valid @RequestBody Store store) throws JBillingException {
 		JBillingResponse response = createResponse(storeService.saveStore(store));
 		return new ResponseEntity<JBillingResponse>(response,HttpStatus.OK);
 	}
 	
+	/**
+	 * API to update a specific store
+	 * @param store
+	 * @return
+	 * @throws JBillingException
+	 */
 	@PutMapping
 	public ResponseEntity<JBillingResponse> updateStores(@Valid @RequestBody StoreEntity store) throws JBillingException {
 		JBillingResponse response = createResponse(storeService.updateStore(store));
 		return new ResponseEntity<JBillingResponse>(response,HttpStatus.OK);
 	}
 	
+	/**
+	 * API to delete a specific store by storeId
+	 * @param storeId
+	 * @return
+	 * @throws JBillingException
+	 */
 	@DeleteMapping(value="/{storeId}")
 	public ResponseEntity<JBillingResponse> deleteStores(@NotEmpty @PathVariable("storeId") String storeId) throws JBillingException {
 		storeService.delete(storeId);

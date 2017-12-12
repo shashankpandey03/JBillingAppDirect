@@ -15,6 +15,12 @@ import com.jbilling.appdirect.domain.response.ProductPricingDetails;
 import com.jbilling.appdirect.exception.JBillingException;
 import com.jbilling.appdirect.service.PricingDataService;
 
+/**
+ * 
+ * @author ShashankPandey
+ * Service class for pricing related operations
+ *
+ */
 @Service
 public class PricingDataServiceImpl implements PricingDataService {
 

@@ -9,6 +9,12 @@ import org.slf4j.LoggerFactory;
 import com.jbilling.appdirect.domain.response.RequestObject;
 import com.jbilling.appdirect.processor.IRuleProcessor;
 
+/**
+ * Main concrete class of decorator. This is the base class and first 
+ * starting point of decorators. No input data is needed for this. 
+ * @author ShashankPandey
+ *
+ */
 public class RuleProcessor extends IRuleProcessor {
 
 	private Logger logger = LoggerFactory.getLogger(RuleProcessor.class);

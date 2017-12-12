@@ -12,6 +12,12 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+/**
+ * 
+ * @author ShashankPandey
+ * Config clas for Spring bean intialisations
+ *
+ */
 @Configuration
 @ComponentScan(basePackages = "com.jbilling.appdirect")
 @EnableWebMvc

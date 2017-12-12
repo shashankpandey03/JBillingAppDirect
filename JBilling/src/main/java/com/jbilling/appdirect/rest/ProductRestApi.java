@@ -22,6 +22,12 @@ import com.jbilling.appdirect.domain.response.JBillingResponse;
 import com.jbilling.appdirect.exception.JBillingException;
 import com.jbilling.appdirect.service.ProductService;
 
+/**
+ * 
+ * @author ShashankPandey
+ * Rest API for Product related operations
+ *
+ */
 @RestController
 @RequestMapping("product")
 public class ProductRestApi {
@@ -29,31 +35,58 @@ public class ProductRestApi {
 	@Autowired
 	private ProductService productService;
 	
-	
+	/**
+	 * API to get all the products
+	 * @return
+	 */
 	@GetMapping
 	public ResponseEntity<JBillingResponse> getAllProducts() {
 		JBillingResponse response = createResponse(productService.list());
 		return new ResponseEntity<JBillingResponse>(response,HttpStatus.OK);
 	}
 	
+	/**
+	 * API to get a specific product by productId
+	 * @param productId
+	 * @return
+	 * @throws JBillingException
+	 */
 	@GetMapping(value="/{productId}")
 	public ResponseEntity<JBillingResponse> getProducts(@NotEmpty @PathVariable("productId") String productId) throws JBillingException {
 		JBillingResponse response = createResponse(productService.getProduct(productId));
 		return new ResponseEntity<JBillingResponse>(response,HttpStatus.OK);
 	}
 	
+	/**
+	 * API to save product details
+	 * @param product
+	 * @return
+	 * @throws JBillingException
+	 */
 	@PostMapping
 	public ResponseEntity<JBillingResponse> createProducts(@Valid @RequestBody Product product) throws JBillingException {
 		JBillingResponse response = createResponse(productService.saveProduct(product));
 		return new ResponseEntity<JBillingResponse>(response,HttpStatus.OK);
 	}
 	
+	/**
+	 * API to update a specific product
+	 * @param product
+	 * @return
+	 * @throws JBillingException
+	 */
 	@PutMapping
 	public ResponseEntity<JBillingResponse> updateProducts(@Valid @RequestBody ProductEntity product) throws JBillingException {
 		JBillingResponse response = createResponse(productService.updateProduct(product));
 		return new ResponseEntity<JBillingResponse>(response,HttpStatus.OK);
 	}
 	
+	/**
+	 * API to delete a specific product by productId
+	 * @param productId
+	 * @return
+	 * @throws JBillingException
+	 */
 	@DeleteMapping(value="/{productId}")
 	public ResponseEntity<JBillingResponse> deleteProducts(@NotEmpty @PathVariable("productId") String productId) throws JBillingException {
 		productService.delete(productId);

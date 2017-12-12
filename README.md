@@ -30,9 +30,9 @@ Steps to build :  Build in following order
     Explanation - This calculates percentage of given value and adds or subtracts it.
     
   Sample json rule = {"LIST_MODIFIER":"1,-1","AVERAGE_CALCULATOR":"","PERCENTAGE_CALCULATOR":"20"}
-  In above json, first LIST_MODIFIER will be called, then AVERAGE_CALCULATOR and then PERCENTAGE_CALCULATOR
+  In given sample json, first LIST_MODIFIER will be called, then AVERAGE_CALCULATOR and then PERCENTAGE_CALCULATOR
   
- # NOTES : RULES HAVE TO BE DEFINED IN JSON IN THE ORDER YOU WANT THEM TO BE EXCUTED
+ ### NOTES : RULES HAVE TO BE DEFINED IN JSON IN THE ORDER YOU WANT THEM TO BE EXCUTED
 
 ## Steps to add new rules
   * Create a new key like given above eg; DUMMY_RULE

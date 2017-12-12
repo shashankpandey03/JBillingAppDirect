@@ -76,4 +76,4 @@ COMMENT ON COLUMN rules.rule IS 'Actual json rule string is stored';
 
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-INSERT INTO rules(rule_id, rule) VALUES (uuid_generate_v4(), '{"LIST_MODIFIER":"2,-2","AVERAGE_CALCULATOR":"","PERCENTAGE_CALCULATOR":"20"}');
+INSERT INTO rules(rule_id, rule) VALUES (uuid_generate_v4(), '{"LIST_MODIFIER":"1,-1","AVERAGE_CALCULATOR":"","PERCENTAGE_CALCULATOR":"20"}');
